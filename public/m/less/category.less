@@ -1,0 +1,61 @@
+/* 引入公共样式文件 */
+@import 'base.less';
+
+/* 分类主体样式 */
+#main{
+    display: flex;
+    background-color: #ccc;
+    .category-left{
+        width: .8rem;
+        position: relative;
+        height: 100%;
+        .mui-scroll{
+            min-height: 100.5%;
+        }
+        ul{
+            li{
+                a{
+                    display: block;
+                    height: .45rem;
+                    line-height: .45rem;
+                    text-align: center;
+                    background-color: #fff;
+                    border-bottom: 1px solid #ccc;
+                    &:active{
+                        color:#666;
+                    }
+
+                }
+                &.active{
+                    a{
+                        background-color: #ccc;
+                        //color: red;
+                    }
+                }
+            }
+        }
+    }
+
+    .category-right{
+        flex: 1;
+        position: relative;
+        height: 100%;
+        .mui-scroll{
+            min-height: 100.5%;
+        }
+        .mui-row{
+            padding: .1rem;
+            a{
+                display: block;
+                background-color: #fff;
+                text-align: center;
+                padding-bottom: .05rem;
+                margin-bottom: .1rem;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        
+    }
+}
