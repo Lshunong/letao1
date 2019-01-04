@@ -1,3 +1,4 @@
+/* 引入公共base.less */
 /* 公共的less文件 */
 /* 乐淘的主题色 */
 /* mui初始化里面没有这个图片的对齐方式 初始化样式 再单独加 */
@@ -96,4 +97,34 @@ body {
 }
 #footer a.active {
   color: red;
+}
+#main .search-form {
+  padding: .1rem;
+}
+#main .search-form form {
+  display: flex;
+}
+#main .search-form form input {
+  flex: 1;
+  margin-bottom: 0;
+  text-align: left;
+  font-size: .14rem;
+  border: 1px solid #006699;
+  /* 输入框去掉右上角右下角的圆角 */
+  border-radius: .06rem 0 0 .06rem;
+}
+#main .search-form form button {
+  font-size: .14rem;
+  background-color: #006699;
+  /* 按钮去掉左上角和左下角的圆角 */
+  border-radius: 0 .06rem .06rem 0;
+}
+#main .search-history .mui-card .mui-card-header {
+  font-size: .14rem;
+}
+#main .search-history .mui-card .mui-card-content .mui-badge {
+  width: .24rem;
+  height: .24rem;
+  padding: 0.06rem;
+  text-align: center;
 }

@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 解决缩放  添加完整事件 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- 引入站点图标 -->
     <link rel="icon" href="images/favicon.ico">
@@ -102,6 +103,37 @@
             <div class="mui-col-xs-3"><a href="user.html"><i class="fa fa-user"></i><span>个人中心</span></a></div>
         </div>
     </footer>
+
+     <!-- 1.创建categoryLeftTpl 分类左侧的模板 -->
+     <script id="categoryLeftTpl" type="text/html">
+        <!-- total和 rows都是 data对象的一级属性 默认就是data取得的 在模板里面千万不能写data.total  data.rows -->
+        <!-- 但是里面的二级属性 categoryName data对象里面都 rows数组里面对象的属性 必须要点出来 -->
+        <!-- total也是数据对象里面的属性 但是值是一个数字 可以直接使用不用遍历 -->
+        <!-- {{total}} -->
+        <!-- rows的对象里面属性 但是值是一个数组 就需要遍历 -->
+        {{each rows value index}}
+            <!--1.用三元表达式 判断 index 是否等于0  如果等于0 返回active 如果不等于0 返回空   -->
+            <!-- 2.data-id="{{value.id}}" 把左侧分类数据里面的id绑定到a标签的自定义属性身上  -->
+            <li class="{{index == 0 ? 'active' : ''}}"><a href="#" data-id="{{value.id}}">{{value.categoryName}}</a></li>
+        {{/each}}
+     </script>
+
+     <!-- 2.创建categoryRightTpl 分类右侧的模板 -->
+     <script id="categoryRightTpl" type="text/html">
+        <!-- 判断如果rows数组长度大于0  才进行遍历渲染 -->
+        {{if rows.length > 0}}
+        {{each rows value }}
+            <div class="mui-col-xs-4">
+                <a href="#">
+                    <img src="{{value.brandLogo}}" alt="">
+                    <p>{{value.brandName}}</p>
+                </a>
+            </div>
+        {{/each}}
+        {{else}}
+            <p>此分类还没有品牌加入</p>
+        {{/if}}
+    </script>
 
     <!-- 1.引入mui的js -->
      <script src="lib/mui/js/mui.js"></script>
